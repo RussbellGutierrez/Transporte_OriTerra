@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="2dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:background="@color/Gainsboro"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/txt_codigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="111111"
+            android:textAlignment="center"
+            android:textColor="@color/Black" />
+
+        <TextView
+            android:id="@+id/txt_descripcion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Descripcion del articulo"
+            android:layout_marginStart="3dp"
+            android:textColor="@color/Black"
+            android:layout_weight="0.92" />
+
+        <TextView
+            android:id="@+id/txt_cantidad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:text="11.111"
+            android:textAlignment="center"
+            android:textColor="@color/Black" />
+
+        <ImageView
+            android:id="@+id/img_estado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            app:srcCompat="@drawable/check"
+            android:background="@color/ForestGreen"/>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

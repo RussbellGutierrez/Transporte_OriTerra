@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        map:mapbox_styleUrl="mapbox://styles/mapbox/streets-v10"
+        map:mapbox_cameraZoomMax="18"
+        map:mapbox_cameraZoomMin="8"/>
+
+    <com.github.lzyzsd.circleprogress.CircleProgress
+        android:id="@+id/progress_circle"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:visibility="gone"/>
+
+    <com.victor.loading.rotate.RotateLoading
+        android:id="@+id/rotateloading"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        map:loading_width="5dp"
+        map:loading_color="#0aa639"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fbtn_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="10dp"
+        android:clickable="true"
+        map:fabSize="mini"
+        map:backgroundTint="@color/Brown"
+        map:rippleColor="@color/Chocolate"
+        map:srcCompat="@drawable/crosshairs_gps"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fbtn_road"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/fbtn_location"
+        android:layout_alignStart="@+id/fbtn_location"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        map:fabSize="mini"
+        map:backgroundTint="@color/Brown"
+        map:rippleColor="@color/Chocolate"
+        map:srcCompat="@drawable/truck" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fbtn_track"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        map:fabSize="mini"
+        map:backgroundTint="@color/Brown"
+        map:rippleColor="@color/Chocolate"
+        map:srcCompat="@drawable/flag_checkered"
+        android:layout_above="@+id/fbtn_road"
+        android:layout_alignStart="@+id/fbtn_road" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fbtn_path"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        map:backgroundTint="@color/Brown"
+        map:fabSize="mini"
+        map:rippleColor="@color/Chocolate"
+        android:layout_above="@+id/fbtn_track"
+        android:layout_alignStart="@+id/fbtn_track"
+        map:srcCompat="@drawable/road_variant" />
+
+</RelativeLayout>

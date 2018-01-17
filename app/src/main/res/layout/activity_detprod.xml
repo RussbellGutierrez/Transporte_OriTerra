@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="3dp"
+    android:id="@+id/card_view"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/White"
+        android:visibility="visible"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/Green"
+            app:srcCompat="@drawable/check"
+            android:layout_alignBottom="@+id/txt_camionerodet"
+            android:layout_alignStart="@+id/imageView3" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="70dp"
+            android:layout_height="80dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/textView3"
+            android:layout_marginStart="15dp"
+            app:srcCompat="@drawable/checkboard" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="75dp"
+            android:layout_marginTop="75dp"
+            android:background="#E63013"
+            app:srcCompat="@drawable/close" />
+
+        <TextView
+            android:id="@+id/txt_cantmala"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView3"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="17dp"
+            android:gravity="center"
+            android:text="numero"
+            android:textColor="@color/Black" />
+
+        <TextView
+            android:id="@+id/txt_cantbuena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/txt_cantmala"
+            android:layout_alignStart="@+id/txt_cantmala"
+            android:layout_marginBottom="18dp"
+            android:gravity="center"
+            android:text="numero"
+            android:textColor="@color/Black" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="101dp"
+            android:layout_marginTop="19dp"
+            android:layout_toStartOf="@+id/fab_listo"
+            android:gravity="center"
+            android:text="DETALLE PRODUCTO"
+            android:textColor="@color/Black" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView3"
+            android:layout_below="@+id/textView3"
+            android:layout_marginTop="15dp"
+            android:text="Camión:"
+            android:textColor="@color/Black" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imageView2"
+            android:layout_alignStart="@+id/textView9"
+            android:text="Planilla:"
+            android:textColor="@color/Black" />
+
+        <TextView
+            android:id="@+id/txt_camionerodet"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView9"
+            android:layout_alignBottom="@+id/textView9"
+            android:layout_toEndOf="@+id/textView9"
+            android:text="TextView"
+            android:textColor="@color/Black" />
+
+        <TextView
+            android:id="@+id/txt_planilladet"
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/linearLayout2"
+            android:layout_alignStart="@+id/txt_camionerodet"
+            android:text="TextView"
+            android:textColor="@color/Black" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/imageView2"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_codart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_weight="0.25"
+                android:text="Código"
+                android:textAlignment="center"
+                android:textColor="@color/Black" />
+
+            <TextView
+                android:id="@+id/txt_campo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:text="Descripción"
+                android:textAlignment="center"
+                android:textColor="@color/Black" />
+
+            <TextView
+                android:id="@+id/txt_campo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_weight="0.34"
+                android:text="#"
+                android:textAlignment="center"
+                android:textColor="@color/Black" />
+
+            <TextView
+                android:id="@+id/txt_estadoart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_weight="0.19"
+                android:text="Estado"
+                android:textAlignment="center"
+                android:textColor="@color/Black" />
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_listo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:rippleColor="@color/Aqua"
+            app:srcCompat="@drawable/backarrow"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/imageView4"
+            android:layout_marginBottom="36dp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_detalle"
+            android:layout_width="330dp"
+            android:layout_height="380dp"
+            android:layout_alignStart="@+id/imageView2"
+            android:layout_below="@+id/linearLayout2" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

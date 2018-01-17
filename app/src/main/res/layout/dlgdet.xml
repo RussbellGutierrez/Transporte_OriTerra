@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="20dp">
+
+
+    <TextView
+        android:id="@+id/info_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:text="Documentos presentes para el cliente seleccionado"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/info_text"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/Coral" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/divider"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/txt_codart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            android:layout_weight="0.25"
+            android:text="Documento"
+            android:textAlignment="center"
+            android:textColor="@color/Black" />
+
+        <TextView
+            android:id="@+id/txt_campo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:text="Tipo negocio"
+            android:textAlignment="center"
+            android:textColor="@color/Black" />
+
+        <TextView
+            android:id="@+id/txt_campo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"
+            android:layout_weight="0.57"
+            android:text="Monto"
+            android:textAlignment="center"
+            android:textColor="@color/Black" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_cliente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_alignParentStart="true"
+        android:background="@color/Azure"/>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_listo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:text="Cerrar"
+        android:textColor="@android:color/white"
+        android:theme="@style/BotonLogin"
+        android:layout_below="@+id/recycler_cliente"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/txt_nomcliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_text"
+        android:layout_centerHorizontal="true"
+        android:text="TextView"
+        android:textColor="@color/Black"/>
+
+</RelativeLayout>

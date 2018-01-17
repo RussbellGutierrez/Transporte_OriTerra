@@ -1,0 +1,49 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#FF178B2F</item>
+        <item name="colorPrimaryDark">#FF09BC2D</item>
+        <item name="colorAccent">#FF1757ED</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <item name="android:textColorHint">#FF808681</item>
+    </style>
+
+    <style name="TextSize" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="ColorBoton" parent="Base.Theme.AppCompat.Light">
+        <item name="colorControlHighlight">#83d3e7</item>
+        <item name="colorButtonNormal">#055f76</item>
+    </style>
+
+    <style name="BotonLogin" parent="Base.Theme.AppCompat.Light">
+        <item name="colorControlHighlight">#e783b3</item>
+        <item name="colorButtonNormal">#ec1e66</item>
+    </style>
+
+    <style name="ColorBotonDialog" parent="Base.Theme.AppCompat.Light">
+        <item name="colorControlHighlight">#e789ba</item>
+    </style>
+
+    <style name="ColorBlanco" parent="Base.Theme.AppCompat.Light">
+        <item name="android:textColorPrimary">#ffffff</item>
+        <item name="android:textColorHint">#ffffff</item>
+    </style>
+
+    <style name="TextoBlanco" parent="TextAppearance.Design.Tab">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="StateButtonCheck" parent="Base.TextAppearance.AppCompat.Button" >
+        <item name="backgroundTint">#99F08D</item>
+    </style>
+
+    <style name="StateButtonClose" parent="Base.TextAppearance.AppCompat.Button" >
+        <item name="backgroundTint">#F58D8D</item>
+    </style>
+
+</resources>

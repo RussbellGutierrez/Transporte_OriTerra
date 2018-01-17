@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@color/White"
+        android:orientation="vertical"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="24dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1.89"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_width="163dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:ems="10"
+                android:text="Aviso del sistema"
+                android:textColor="@color/color_hint"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:layout_marginStart="10dp"
+                app:srcCompat="@drawable/database" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/editText5"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:lines="2"
+            android:text="Se encontraron datos anteriormente almacenados."
+            android:textColor="@color/color_hint"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/editText6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"
+            android:ems="10"
+            android:lines="1"
+            android:text="Desea eliminarlos?"
+            android:textColor="@color/color_hint"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="-15dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/cancel"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:text="Cancelar"
+                android:textColor="#a30537"
+                android:theme="@style/ColorBotonDialog" />
+
+            <Button
+                android:id="@+id/ok"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Ok"
+                android:textColor="#a30537"
+                android:theme="@style/ColorBotonDialog" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="3dp"
+    android:id="@+id/card_view"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/White"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/linearlay"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="textEnd"
+                android:text="Documento N°: "
+                android:textColor="@color/Black"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/txt_numdocu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.77"
+                android:text="TextView"
+                android:textColor="@color/Black"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="70dp"
+            android:layout_height="80dp"
+            app:srcCompat="@drawable/clipboard_list"
+            android:layout_below="@+id/linearlay"
+            android:layout_alignStart="@+id/recyclerDocumento" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:orientation="horizontal"
+            android:layout_above="@+id/recyclerDocumento"
+            android:layout_alignParentStart="true">
+
+            <TextView
+                android:id="@+id/txt_codart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_weight="0.17"
+                android:text="Código"
+                android:textAlignment="center"
+                android:textColor="@color/Black" />
+
+            <TextView
+                android:id="@+id/txt_campo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:text="Descripción"
+                android:textAlignment="center"
+                android:textColor="@color/Black" />
+
+            <TextView
+                android:id="@+id/txt_campo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_weight="0.34"
+                android:text="#"
+                android:textAlignment="center"
+                android:textColor="@color/Black" />
+
+            <TextView
+                android:id="@+id/txt_estadoart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_weight="0.19"
+                android:text="s/."
+                android:textAlignment="center"
+                android:textColor="@color/Black" />
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:rippleColor="@color/Aqua"
+            app:srcCompat="@drawable/backarrow"
+            android:layout_marginBottom="16dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignEnd="@+id/recyclerDocumento" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerDocumento"
+            android:layout_width="330dp"
+            android:layout_height="350dp"
+            android:layout_above="@+id/fab_close"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginTop="12dp"
+            android:text="Cliente: "
+            android:textColor="@color/Black"
+            android:layout_below="@+id/linearlay"
+            android:layout_toEndOf="@+id/imageView6" />
+
+        <TextView
+            android:id="@+id/txt_nomcli"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="@color/Black"
+            android:layout_alignBaseline="@+id/textView11"
+            android:layout_alignBottom="@+id/textView11"
+            android:layout_toEndOf="@+id/textView11" />
+
+        <TextView
+            android:id="@+id/txt_importe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Black"
+            android:text="TextView"
+            android:layout_below="@+id/textView13"
+            android:layout_toEndOf="@+id/textView13"
+            android:layout_marginStart="14dp" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Planilla   :"
+            android:textColor="@color/Black"
+            android:layout_alignBottom="@+id/imageView6"
+            android:layout_alignStart="@+id/textView11"
+            android:layout_marginBottom="14dp" />
+
+        <TextView
+            android:id="@+id/txt_plandocu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Black"
+            android:layout_alignBottom="@+id/textView13"
+            android:layout_alignStart="@+id/txt_importe"
+            android:text="TextView" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="110dp"
+        android:text="Importe  :"
+        android:textColor="@color/Black"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

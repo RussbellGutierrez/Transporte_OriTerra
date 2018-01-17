@@ -1,0 +1,145 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Azure"
+    android:focusable="true" android:focusableInTouchMode="true">
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="47dp"
+        app:srcCompat="@drawable/solo_logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/img_camion"
+        android:layout_width="300dp"
+        android:layout_height="280dp"
+        android:layout_below="@+id/img_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        app:srcCompat="@drawable/truck_logo" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textInputLayout"
+        app:hintTextAppearance="@style/TextSize"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="49dp"
+        android:layout_alignTop="@+id/img_camion"
+        android:layout_alignStart="@+id/img_camion">
+
+        <EditText
+            android:id="@+id/edit_codigo"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_alignEnd="@+id/textInputLayout"
+            android:layout_alignStart="@+id/textInputLayout"
+            android:background="@color/White"
+            android:ems="5"
+            android:hint="Camión"
+            android:inputType="number"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:visibility="visible" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:hintTextAppearance="@style/TextSize"
+        android:layout_below="@+id/textInputLayout"
+        android:layout_alignStart="@+id/textInputLayout"
+        android:layout_marginTop="11dp"
+        android:layout_alignEnd="@+id/textInputLayout"
+        android:id="@+id/textInputLayout4">
+
+        <EditText
+            android:id="@+id/edit_contrasena"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignBottom="@+id/check_recordar"
+            android:layout_alignEnd="@+id/textInputLayout"
+            android:layout_alignStart="@+id/textInputLayout"
+            android:layout_weight="1"
+            android:background="@color/White"
+            android:ems="10"
+            android:hint="Contraseña"
+            android:inputType="numberPassword"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:visibility="visible"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btn_verificar"
+        android:layout_width="25dp"
+        android:layout_height="50dp"
+        android:text="Ingresar"
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/img_logo"
+        android:layout_marginBottom="57dp"
+        android:layout_alignEnd="@+id/img_logo"
+        android:textColor="@color/White"
+        android:theme="@style/ColorBoton"/>
+
+    <CheckBox
+        android:id="@+id/check_recordar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recordar"
+        android:textSize="15sp"
+        android:visibility="visible"
+        android:layout_alignBottom="@+id/textInputLayout4"
+        android:layout_toEndOf="@+id/btn_verificar" />
+
+    <ImageView
+        android:id="@+id/img_setting"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignEnd="@+id/img_camion"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="29dp"
+        app:srcCompat="@drawable/settings" />
+
+    <TextView
+        android:id="@+id/txt_basedatos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="terranorte"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/logo_bd"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        app:srcCompat="@drawable/account_details"
+        android:layout_above="@+id/img_camion"
+        android:layout_alignEnd="@+id/img_setting"
+        android:layout_marginBottom="18dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_cloud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/img_camion"
+        android:layout_alignTop="@+id/logo_bd"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:backgroundTint="@color/Brown"
+        app:rippleColor="@color/AntiqueWhite"
+        app:srcCompat="@drawable/cloud_upload"
+        app:useCompatPadding="true"/>
+
+</RelativeLayout>
