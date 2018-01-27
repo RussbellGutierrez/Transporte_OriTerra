@@ -31,6 +31,8 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.russbell.transporte_oriterra.Adapter.Adapter_documento;
+import com.example.russbell.transporte_oriterra.Class.Feed_cliente;
 import com.example.russbell.transporte_oriterra.Class.InfoWindowModel;
 import com.example.russbell.transporte_oriterra.Class.NClass_documento;
 import com.example.russbell.transporte_oriterra.Dialogs.DlgObs;
@@ -38,6 +40,7 @@ import com.example.russbell.transporte_oriterra.Holder.Holder_data;
 import com.example.russbell.transporte_oriterra.Interfaces.ComunicatorListener;
 import com.example.russbell.transporte_oriterra.Interfaces.InterfaceMap;
 import com.example.russbell.transporte_oriterra.Interfaces.MapListener;
+import com.example.russbell.transporte_oriterra.Interfaces.UpdateFragment;
 import com.example.russbell.transporte_oriterra.R;
 import com.example.russbell.transporte_oriterra.Threads.ThreadDocumento;
 import com.example.russbell.transporte_oriterra.Threads.ThreadGetRoute;
@@ -145,6 +148,10 @@ public class Fragment_ruta_offline extends Fragment
     //=======================VIEWS=======================
 
     public Fragment_ruta_offline(){
+    }
+
+    public static Fragment_ruta_offline newInstance() {
+        return new Fragment_ruta_offline();
     }
 
     //============METODO PARA CONTRUIR EL API CLIENT===================
@@ -936,12 +943,14 @@ public class Fragment_ruta_offline extends Fragment
 
     public void drawClientes(MapboxMap map){
         Timber.tag(TAG).i("drawClientes execute");
-        String codcli="";
+        ArrayList<String> codcliente=new ArrayList<>();
+        //String codcli="";
         for (NClass_documento item: ThreadDocumento.tmpDocumento){
-            if (!item.getCliente().equals(codcli)){
-                codcli=item.getCliente();
-                String estado=item.getEstado();
-                switch (estado){
+            if (!codcliente.contains(item.getCliente())){
+                codcliente.add(item.getCliente());
+                //codcli=item.getCliente();
+                //String estado=item.getEstado();
+                switch (item.getEstado()){
                     case "1":
                         Marker greenmarker=map.addMarker(new MarkerOptions()
                                 .title("cliente")
@@ -1149,7 +1158,7 @@ public class Fragment_ruta_offline extends Fragment
 
     @Override
     public void onMapChangeState(String event) {
-        Timber.tag(TAG).i("MapChangeState events!!!");
+        Log.i(TAG,"MapChangeState events!!!");
         switch (event){
             case "Atendido":
                 changeStateClient("1");
@@ -1193,18 +1202,24 @@ public class Fragment_ruta_offline extends Fragment
     }
 
     private void changeStateClient(String estado){
+
         int i=0;
         for (NClass_documento item: ThreadDocumento.tmpDocumento){
             if (item.getCliente().equals(Holder_data.codigocliente)){
                 NClass_documento documento=ThreadDocumento.tmpDocumento.get(i);
-                Timber.tag(TAG).d("Antes el cliente " + documento.getCliente() + " tiene estado " + documento.getEstado());
+                Log.d(TAG,"Antes el cliente " + documento.getCliente() + " tiene estado " + documento.getEstado());
                 documento.setEstado(estado);
                 ThreadDocumento.tmpDocumento.set(i,documento);
                 NClass_documento documento2=ThreadDocumento.tmpDocumento.get(i);
-                Timber.tag(TAG).d("Ahora el cliente " + documento2.getCliente() + " tiene estado " + documento2.getEstado());
+                Log.d(TAG,"Ahora el cliente " + documento2.getCliente() + " tiene estado " + documento2.getEstado());
                 break;
             }
             i++;
         }
     }
+
+    /*@Override
+    public void update() {
+        Log.i(TAG,"Map is execute update");
+    }*/
 }

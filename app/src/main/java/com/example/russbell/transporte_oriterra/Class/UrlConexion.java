@@ -20,8 +20,8 @@ public class UrlConexion {
     //private String ip_post="200.48.106.21";
     //private String ip_terranorte="192.168.1.130";
     //private String ip_oriunda="192.168.1.130:8080";
-    private String ip_terranorte="200.48.106.21";
-    private String ip_oriunda="200.48.106.21:8080";
+    private String ip_terranorte="200.110.40.58:80";
+    private String ip_oriunda="200.110.40.58:8080";
     //private String ip_post="10.0.2.2:8027";
     //private String ip_post="192.168.1.232:8027";
     //private String ip_post="192.168.0.102:8027";

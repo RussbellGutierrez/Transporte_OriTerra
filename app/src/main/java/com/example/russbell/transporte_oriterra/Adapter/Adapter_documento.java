@@ -28,6 +28,8 @@ import com.mapbox.mapboxsdk.annotations.IconFactory;
 import com.mapbox.mapboxsdk.annotations.Marker;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by Russbell on 21/08/2017.
@@ -37,23 +39,30 @@ public class Adapter_documento extends RecyclerView.Adapter<DocumentoHolder>
         implements MultipleEvents {
 
     private Context context;
-    private String lastcodcliente="";
-    private String newcodcliente="";
     private AdapterComponents listener;
     private FragmentManager fragmentManager;
+    private ArrayList<NClass_documento> temporal = new ArrayList<>();
+    private ArrayList<String> codcliente=new ArrayList<>();
     private ArrayList<Feed_cliente> feed=new ArrayList<>();
-    private static final String TAG="Adap_documento";
+    private static final String TAG="Frag_Adap_documento";
 
     public Adapter_documento(FragmentManager fragmentManager, Context context, AdapterComponents listener) {
+        //notifyDataSetChanged();
         this.context=context;
         this.listener=listener;
         this.fragmentManager=fragmentManager;
+        //temporal=tempDoc;
+
+
+        //String lastcodcliente="";
         if (!ThreadDocumento.tmpDocumento.isEmpty()){
             for(NClass_documento documento:ThreadDocumento.tmpDocumento){
                 if (documento.getNropla().equals(Holder_data.nropla)){
-                    newcodcliente=documento.getCliente();
-                    if (!lastcodcliente.equals(newcodcliente)){
-                        lastcodcliente=newcodcliente;
+                    //codcliente.add(documento.getCliente());
+                    Log.i(TAG,"Client "+documento.getCliente()+" with state "+documento.getEstado());
+                    if (!codcliente.contains(documento.getCliente())){
+                        //Log.i(TAG,"Client added "+documento.getCliente());
+                        codcliente.add(documento.getCliente());
                         Feed_cliente item=new Feed_cliente();
                         item.setFeedcodigo(documento.getCliente());
                         item.setFeednombre(documento.getNomcli());
@@ -69,6 +78,8 @@ public class Adapter_documento extends RecyclerView.Adapter<DocumentoHolder>
         }else {
             drawDocumento(context);
         }
+
+        Log.w(TAG,"Execute adapfragment");
     }
 
     private void drawDocumento(Context context){
@@ -76,7 +87,7 @@ public class Adapter_documento extends RecyclerView.Adapter<DocumentoHolder>
             ThreadDocumento.tmpDocumento.clear();
         }
 
-        SQL_sentences sql = new SQL_sentences(context);
+        //SQL_sentences sql = new SQL_sentences(context);
         SQL_helper helper=new SQL_helper(context);
         SQLiteDatabase db=helper.getReadableDatabase();
         Cursor cursor=db.rawQuery("select distinct cliente,nomcli," +
@@ -113,13 +124,14 @@ public class Adapter_documento extends RecyclerView.Adapter<DocumentoHolder>
 
     @Override
     public DocumentoHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Log.w(TAG,"Execute onCreateViewHolder");
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.row_cliente,parent,false);
         return new DocumentoHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final DocumentoHolder holder, int position) {
-        //Log.i(TAG,"BindviewHolder is execute!!!");
+        Log.i(TAG,"BindviewHolder is execute!!!");
         Holder_data.newListener(Adapter_documento.this,holder,holder.getAdapterPosition());
         final Feed_cliente item=feed.get(position);
         holder.bind(item);
@@ -234,12 +246,12 @@ public class Adapter_documento extends RecyclerView.Adapter<DocumentoHolder>
         Log.d(TAG,"Reach state change");
 
         Feed_cliente item=feed.get(Holder_data.position);
-        Log.d(TAG,"Antes el cliente "+item.getFeedcodigo()+" tiene estado "+item.getFeedestado()+" en Feed_cliente");
+        Log.d(TAG,"Antes el cliente "+item.getFeedcodigo()+" tiene estado "+item.getFeedestado()+" en Feed_cliente en posicion "+Holder_data.position);
         item.setFeedestado(estado);
         feed.set(Holder_data.position,item);
         //TODO:Prueba de que guardo el dato
         Feed_cliente item2=feed.get(Holder_data.position);
-        Log.d(TAG,"Ahora el cliente "+item2.getFeedcodigo()+" tiene estado "+item2.getFeedestado()+" en Feed_cliente");
+        Log.d(TAG,"Ahora el cliente "+item2.getFeedcodigo()+" tiene estado "+item2.getFeedestado()+" en Feed_cliente en posicion "+Holder_data.position);
 
         int i=0;
         for (NClass_documento docu: ThreadDocumento.tmpDocumento){

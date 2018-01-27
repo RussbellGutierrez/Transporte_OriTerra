@@ -227,7 +227,7 @@ public class Activity_acceso extends AppCompatActivity
 
     private void iniciarLogin(){
         boolean connected=isNetworkConnected(this);
-        Peticiones peti = new Peticiones(basedatos, this,this);
+        Peticiones peti = new Peticiones(basedatos, Activity_acceso.this,this);
         if (connected){
 
             HashMap<String,String> parametros=new HashMap<String, String>();

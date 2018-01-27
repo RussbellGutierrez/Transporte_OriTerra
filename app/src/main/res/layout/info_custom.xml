@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
@@ -135,61 +137,26 @@
                 android:paddingBottom="3dp"/>
         </LinearLayout>
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/txt_titulo"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/White"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:visibility="gone">
+            android:background="@color/Teal"
+            android:textColor="@color/White"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:text="DOCUMENTOS" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="3dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="0.5"
-                android:background="@color/White"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/fab_atendido"
-                    style="@style/StateButtonCheck"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:fabSize="mini"
-                    app:rippleColor="#5AED6E"
-                    app:srcCompat="@drawable/check" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="3dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="0.5"
-                android:background="@color/White"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/fab_rechazo"
-                    style="@style/StateButtonClose"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:focusable="true"
-                    app:fabSize="mini"
-                    app:rippleColor="#ED5A5A"
-                    app:srcCompat="@drawable/close" />
-
-            </LinearLayout>
-
-        </LinearLayout>
+        <TextView
+            android:id="@+id/txt_documentos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@color/Beige"
+            android:textColor="@color/Black"
+            android:textSize="12sp"
+            android:text="FCVTA-11-0025425\nBLVTA-11-0025425\nFCVTA-11-0025425\nBLVTA-11-0025425" />
 
     </LinearLayout>
 

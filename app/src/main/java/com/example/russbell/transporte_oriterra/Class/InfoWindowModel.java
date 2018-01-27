@@ -29,7 +29,6 @@ public class InfoWindowModel implements MapboxMap.InfoWindowAdapter {
     private String negocio;
     private String ruta;
     private String estado;
-
     //=======variables para fletero==========
     private String fletero_nom;
     private String fletero_ruta;
@@ -37,7 +36,7 @@ public class InfoWindowModel implements MapboxMap.InfoWindowAdapter {
     private String fletero_latitud;
     //=======variables==========
     private LayoutInflater inflater;
-    private int i=0;
+    //private int i=0;
     private Context context;
     private static final String TAG = "InfoWindowModel";
 
@@ -48,6 +47,7 @@ public class InfoWindowModel implements MapboxMap.InfoWindowAdapter {
     @BindView(R.id.txt_negocio) TextView txt_negocio;
     @BindView(R.id.txt_ruta) TextView txt_ruta;
     @BindView(R.id.txt_estado) TextView txt_estado;
+    @BindView(R.id.txt_documentos) TextView txt_documentos;
     /*@BindView(R.id.fab_atendido) FloatingActionButton fab_atendido;
     @BindView(R.id.fab_rechazo) FloatingActionButton fab_rechazo;*/
 
@@ -87,13 +87,17 @@ public class InfoWindowModel implements MapboxMap.InfoWindowAdapter {
     }*/
 
     private void obtainClient(){
+        //int veces=0;
+        String documentos= "";
+        String planilla =Holder_data.codprov+"-"+Holder_data.seriepla+"-"+Holder_data.tipopla+"-"+Holder_data.nropla;
         String compare= String.valueOf(Holder_data.posicion.getLatitude()+","+Holder_data.posicion.getLongitude());
         if (Holder_data.titulo.equalsIgnoreCase("cliente")){
             ly_fletero.setVisibility(View.GONE);
             ly_cliente.setVisibility(View.VISIBLE);
             for (NClass_documento item: ThreadDocumento.tmpDocumento){
                 String coord=item.getYCoord()+","+item.getXCoord();
-                if (coord.equals(compare)){
+                String plani=item.getCodprov()+"-"+item.getSeriepla()+"-"+item.getTipopla()+"-"+item.getNropla();
+                if (coord.equals(compare) && plani.equalsIgnoreCase(planilla)){
                     cliente=item.getCliente()+"-"+item.getNomcli();
                     ruta=item.getRuta();
                     negocio=item.getNegocio();
@@ -109,18 +113,34 @@ public class InfoWindowModel implements MapboxMap.InfoWindowAdapter {
                             estado="Rechazado";
                             break;
                     }
+                    documentos=getAllDocuments(compare,planilla);
                     Log.d(TAG,"Cliente codigo "+item.getCliente()+" con estado "+item.getEstado());
                     Holder_data.newDataCliente(item.getCliente(),item.getNomcli());
+                    /*if(documentos.equals("")){
+                        documentos=item.getDocumento();
+                        //veces++;
+                    }else if(!documentos.equals("")){
+                        documentos+="\n"+item.getDocumento();
+                    }*/
                     break;
                 }
-                i++;
+                //i++;
                 //Log.d(TAG,coord);
             }
             txt_datocliente.setText(cliente);
-            txt_direccion.setText(direccion);
+            if(direccion.length()==25){
+                txt_direccion.setText(direccion);
+            }else{
+                String first=direccion.substring(0,25);
+                String second=direccion.substring(25);
+                String directnew=first+"\n"+second;
+                txt_direccion.setText(directnew);
+            }
+            //txt_direccion.setText(direccion);
             txt_negocio.setText(negocio);
             txt_ruta.setText(ruta);
             txt_estado.setText(estado);
+            txt_documentos.setText(documentos);
         }else {
             ly_fletero.setVisibility(View.VISIBLE);
             ly_cliente.setVisibility(View.GONE);
@@ -133,5 +153,21 @@ public class InfoWindowModel implements MapboxMap.InfoWindowAdapter {
             txt_longitud.setText(fletero_longitud);
             txt_latitud.setText(fletero_latitud);
         }
+    }
+
+    private String getAllDocuments(String xandy,String planilla){
+        String documentos="";
+        for (NClass_documento item: ThreadDocumento.tmpDocumento){
+            String coord=item.getYCoord()+","+item.getXCoord();
+            String plani=item.getCodprov()+"-"+item.getSeriepla()+"-"+item.getTipopla()+"-"+item.getNropla();
+            if (coord.equals(xandy) && plani.equalsIgnoreCase(planilla)){
+                if(documentos.equals("")){
+                    documentos=item.getDocumento();
+                }else if(!documentos.equals("")){
+                    documentos+="\n"+item.getDocumento();
+                }
+            }
+        }
+        return documentos;
     }
 }

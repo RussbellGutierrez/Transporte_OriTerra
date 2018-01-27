@@ -11,6 +11,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,6 +28,7 @@ import com.example.russbell.transporte_oriterra.Class.Feed_producto;
 import com.example.russbell.transporte_oriterra.Holder.Holder_data;
 import com.example.russbell.transporte_oriterra.Interfaces.AdapterComponents;
 import com.example.russbell.transporte_oriterra.Interfaces.ComunicatorListener;
+import com.example.russbell.transporte_oriterra.Interfaces.UpdateFragment;
 import com.example.russbell.transporte_oriterra.R;
 import com.example.russbell.transporte_oriterra.SQL.SQL_sentences;
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -71,13 +73,17 @@ public class Fragment_producto extends Fragment
         }
     }
 
-    public static Fragment_producto newProducto(Bundle arg){
+    /*public static Fragment_producto newInstance() {
+        return new Fragment_producto();
+    }*/
+
+    /*public static Fragment_producto newProducto(Bundle arg){
         Fragment_producto f=new Fragment_producto();
         if (arg!=null){
             f.setArguments(arg);
         }
         return f;
-    }
+    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -190,4 +196,9 @@ public class Fragment_producto extends Fragment
             }i++;
         }
     }
+
+    /*@Override
+    public void update() {
+        Log.i(TAG,"Fragment producto is execute update");
+    }*/
 }

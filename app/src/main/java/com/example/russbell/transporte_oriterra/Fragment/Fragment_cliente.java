@@ -25,6 +25,7 @@ import com.example.russbell.transporte_oriterra.Class.Feed_cliente;
 import com.example.russbell.transporte_oriterra.Holder.Holder_data;
 import com.example.russbell.transporte_oriterra.Interfaces.AdapterComponents;
 import com.example.russbell.transporte_oriterra.Interfaces.ComunicatorListener;
+import com.example.russbell.transporte_oriterra.Interfaces.UpdateFragment;
 import com.example.russbell.transporte_oriterra.R;
 
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ public class Fragment_cliente extends Fragment
     private ComunicatorListener listener;
     private ArrayList<Feed_cliente> feed=new ArrayList<>();
     private static final String TAG="Frag_cliente";
+    private ViewGroup viewGroup;
 
     @BindView(R.id.rv_Client) RecyclerView recyclerView;
     @BindView(R.id.pb_cliente) ProgressBar progressBar;
@@ -51,13 +53,17 @@ public class Fragment_cliente extends Fragment
     public Fragment_cliente(){
     }
 
-    public static Fragment_cliente newCliente(Bundle arg){
+    /*public static Fragment_cliente newCliente(Bundle arg){
         Fragment_cliente f=new Fragment_cliente();
         if (arg!=null){
             f.setArguments(arg);
         }
         return f;
-    }
+    }*/
+
+    /*public static Fragment_cliente newInstance() {
+        return new Fragment_cliente();
+    }*/
 
     @Override
     public void onAttach(Context context) {
@@ -73,7 +79,7 @@ public class Fragment_cliente extends Fragment
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ViewGroup viewGroup=(ViewGroup)inflater.
+        viewGroup=(ViewGroup)inflater.
                 inflate(R.layout.fragment_cliente,container,false);
         ButterKnife.bind(this,viewGroup);
         iniciarAdapter();
@@ -139,4 +145,28 @@ public class Fragment_cliente extends Fragment
         this.feed= (ArrayList<Feed_cliente>) feed;
         Log.w(TAG,"FinishAdapter on clientefrag");
     }
+
+    /*@Override
+    public void update() {
+        if (viewGroup!=null){
+            Log.w(TAG,"View is not null");
+        }else{
+            Log.w(TAG,"View is null");
+        }
+        if (recyclerView!=null){
+            Log.w(TAG,"RecyclerView is not null");
+        }else{
+            Log.w(TAG,"RecyclerView is null");
+        }
+    }*/
+
+    /*@Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (!isVisibleToUser) {
+            if (isAdded()){
+                onDestroy();
+            }
+        }
+    }*/
 }

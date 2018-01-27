@@ -9,7 +9,7 @@
         app:actionViewClass="android.support.v7.widget.SearchView"/>
     <item
         android:id="@+id/action_det"
-        android:title="Sync"
+        android:title="Detail"
         android:icon="@drawable/archive"
         app:showAsAction="ifRoom|collapseActionView"/>
     <item
